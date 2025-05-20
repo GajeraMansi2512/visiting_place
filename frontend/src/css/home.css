@@ -1,0 +1,253 @@
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --card-bg: white;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --button-bg: rgba(0, 0, 0, 0.5);
+  --button-text: white;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --button-bg: rgba(255, 255, 255, 0.2);
+  --button-text: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  transition: opacity 1s ease-in-out;
+}
+
+.list-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 1850px;
+  margin: 40px auto;
+  padding: 20px;
+  justify-self: right;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px var(--shadow-color);
+  transition: width 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.list-wrapper h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.list-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 40px;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.list-item {
+  flex: 0 0 auto;
+  width: 180px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-3px);
+}
+
+.list-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.left {
+  left: 10px;
+}
+.right {
+  right: 10px;
+}
+@media (max-width: 1830px) {
+  .list-wrapper {
+    width: 75%;
+  }
+}
+@media (max-width: 1600px) {
+  .list-wrapper {
+    width: 70%;
+  }
+}
+@media (max-width: 1500px) {
+  .list-wrapper {
+    width: 60%;
+  }
+}
+@media (max-width: 1400px) {
+  .list-wrapper {
+    width: 50%;
+  }
+}
+@media (max-width: 1360px) {
+  .hero-container {
+    height: 40vh;
+  }
+}
+@media (max-width: 1250px) {
+  .hero-container {
+    height: 35vh;
+  }
+  .list-wrapper {
+    width: 50%;
+  }
+  .list-item {
+    width: 140px;
+  }
+}
+@media (max-width: 1100px) {
+  .hero-container {
+    height: 30vh;
+  }
+  .list-wrapper {
+    width: 45%;
+  }
+}
+@media (max-width: 1000px) {
+  .list-wrapper {
+    width: 35%;
+  }
+}
+@media (max-width: 840px) {
+  .list-wrapper {
+    width: 30%;
+  }
+}
+@media (max-width: 740px) {
+  .list-wrapper {
+    width: 25%;
+  }
+}
+@media (max-width: 600px) {
+  .list-wrapper {
+    width: 16%;
+  }
+}
+.search-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  max-width: 600px;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .search-container {
+    width: 70%;
+  }
+}
+@media (max-width: 750px) {
+  .search-container {
+    width: 25%;
+  }
+}
+@media (max-width: 600px) {
+  .search-container {
+    width: 17%;
+    top: 55%;
+  }
+  .search-container input {
+    width: 93%;
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+.search-dropdown {
+  position: relative;
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px solid #ddd;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  justify-content: left;
+  text-align: left;
+}
+
+.search-dropdown li {
+  cursor: pointer;
+  padding: 10;
+  justify-self: center;
+  width: 100%;
+}
+
+.search-dropdown li:hover {
+  background: var(--bg-color);
+}
